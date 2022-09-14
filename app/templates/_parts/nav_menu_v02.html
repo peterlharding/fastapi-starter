@@ -1,0 +1,43 @@
+<nav id="nb" class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">FastAPI</a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav">
+        <li {% if ctx.title == "Home" %}class="active nav-active"{% endif %}><a href="/home">Home</a></li>
+        <li {% if ctx.title == "Projects" %}class="active nav-active"{% endif %}><a href="/projects">Projects</a></li>
+
+        <li {% if ctx.title == "Lists" %}class="active"{% endif %} class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="/not-implemented-yet">Lists<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/not-implemented-yet">List This</a></li>
+            <li><a href="/not-implemented-yet">List That</a></li>
+          </ul>
+        </li>
+
+        <li  {% if ctx.title == "Admin" %}class="active"{% endif %} class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="/not-implemented-yet">Admin<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/not-implemented-yet">List Tables</a></li>
+            <li><a href="/not-implemented-yet?period=today">List Today's Data</a></li>
+            <li><a href="/not-implemented-yet?period=month">List Last Month's Data</a></li>
+          </ul>
+        </li>
+
+        <li  {% if ctx.title == "About" %}class="active"{% endif %} class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="/about">About<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/contact-us">Contact Us</a></li>
+            <li><a href="/about">About</a></li>
+          </ul>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        {% if not ctx.Authenticated %}
+        <li><a href="/sign-up"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        {% else %}
+        <li><a href="/search"><span class="glyphicon glyphicon-search"></span> Search</a></li>
+        <li><a href="/logout">Logout</a></li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>
