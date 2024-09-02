@@ -1,2 +1,5 @@
 # fastapi-starter
-FastAPI Starter project
+
+FastAPI starter project
+
+

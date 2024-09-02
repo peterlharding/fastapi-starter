@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="shortcut icon" href="/img/MagusCo.ico">
+
+  {% if ctx.tab_label and ctx.tab_label|length > 0 %}
+    <title>{ ctx.tab_label }}</title>
+  {% else %}
+    <title>Timesheets</title>
+  {% endif %}
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" href="/css/style.css">
+
+  <!-- This implements the footer push -->
+
+  <style type="text/css">
+
+    html {
+        height:100%;
+    }
+
+    body {
+        height:100%;
+    }
+
+    .wrapper {
+        min-height:100%;
+        height: auto !important; // the magic!
+        height:100%;
+        margin-bottom:-150px; // the height of our footer + margin
+    }
+
+    .footer-push {
+        clear:both;
+        height:150px; // the height of our footer + margin
+    }
+
+    footer {
+        background-color: #404B74;
+        background-color: #222222;
+        bottom: 0px;
+        width: 100%;
+        position: relative;
+        height: 120px;
+        margin-top: 30px;
+        text-align: center;
+        padding: 20px 40px 20px;
+    }
+
+    table.ex1 {border-spacing: 0}
+    table.ex1 td, th {padding: 0 0.2em}
+    table.ex1 tr:nth-child(odd) {color: #000; background: #FFF}
+    table.ex1 tr:nth-child(even) {color: #000; background: #EEE}
+
+    table.ex2 {border-spacing: 0}
+    table.ex2 td, th {padding: 0 0.2em}
+    table.ex2 col:first-child {background: #FF0}
+    table.ex2 col:nth-child(2n+3) {background: #CCC}
+
+  </style>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://use.fontawesome.com/5e31cc5621.js"></script>
+
+</head>
+<body>
+
+<div class="wrapper">
+
+{% include '_parts/nav_menu_v02.html' %}
+
+{% block content %}{% endblock %}
+
+<div class="footer-push"></div>
+</div><!-- .wrapper -->
+
+{% include '_parts/footer_v02.html' %}
+
+</body>
+</html>

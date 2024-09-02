@@ -1,0 +1,7 @@
+python-dotenv
+python-decouple
+pydantic
+starlette
+fastapi
+fastapi_mail
+uvcorn
