@@ -4,8 +4,17 @@ FILES := $(shell ls)
 HOST  := $(shell grep HOST .env | sed 's/HOST=//')
 PORT  := $(shell grep PORT .env | sed 's/PORT=//')
 
+
+chk-env:
+	@echo "    HOST |${HOST}|"
+	@echo "    PORT |${PORT}|"
+
+check:
+	netstat -anp | grep ${PORT}
+
 start:
 	nohup uvicorn app.main:app --reload --host ${HOST} --port ${PORT} 2>&1 > /tmp/fastapi-starter.log &
+	netstat -anp | grep ${PORT}
 
 chown:
 	chown -R www-data:www-data .
